@@ -1,0 +1,66 @@
+[
+    { "symbol":"A", "value":1, "color":"H" },
+    { "symbol":"A", "value":1, "color":"S" },
+    { "symbol":"A", "value":1, "color":"D" },
+    { "symbol":"A", "value":1, "color":"C" },
+    
+    { "symbol":"2", "value":2, "color":"H" },
+    { "symbol":"2", "value":2, "color":"S" },
+    { "symbol":"2", "value":2, "color":"D" },
+    { "symbol":"2", "value":2, "color":"C" },
+
+    { "symbol":"3", "value":3, "color":"H" },
+    { "symbol":"3", "value":3, "color":"S" },
+    { "symbol":"3", "value":3, "color":"D" },
+    { "symbol":"3", "value":3, "color":"C" },
+
+    { "symbol":"4", "value":4, "color":"H" },
+    { "symbol":"4", "value":4, "color":"S" },
+    { "symbol":"4", "value":4, "color":"D" },
+    { "symbol":"4", "value":4, "color":"C" },
+
+    { "symbol":"5", "value":5, "color":"H" },
+    { "symbol":"5", "value":5, "color":"S" },
+    { "symbol":"5", "value":5, "color":"D" },
+    { "symbol":"5", "value":5, "color":"C" },
+
+    { "symbol":"6", "value":6, "color":"H" },
+    { "symbol":"6", "value":6, "color":"S" },
+    { "symbol":"6", "value":6, "color":"D" },
+    { "symbol":"6", "value":6, "color":"C" },
+
+    { "symbol":"7", "value":7, "color":"H" },
+    { "symbol":"7", "value":7, "color":"S" },
+    { "symbol":"7", "value":7, "color":"D" },
+    { "symbol":"7", "value":7, "color":"C" },
+
+    { "symbol":"8", "value":8, "color":"H" },
+    { "symbol":"8", "value":8, "color":"S" },
+    { "symbol":"8", "value":8, "color":"D" },
+    { "symbol":"8", "value":8, "color":"C" },
+
+    { "symbol":"9", "value":9, "color":"H" },
+    { "symbol":"9", "value":9, "color":"S" },
+    { "symbol":"9", "value":9, "color":"D" },
+    { "symbol":"9", "value":9, "color":"C" },
+
+    { "symbol":"10", "value":10, "color":"H" },
+    { "symbol":"10", "value":10, "color":"S" },
+    { "symbol":"10", "value":10, "color":"D" },
+    { "symbol":"10", "value":10, "color":"C" },
+
+    { "symbol":"J", "value":10, "color":"H" },
+    { "symbol":"J", "value":10, "color":"S" },
+    { "symbol":"J", "value":10, "color":"D" },
+    { "symbol":"J", "value":10, "color":"C" },
+
+    { "symbol":"Q", "value":10, "color":"H" },
+    { "symbol":"Q", "value":10, "color":"S" },
+    { "symbol":"Q", "value":10, "color":"D" },
+    { "symbol":"Q", "value":10, "color":"C" },
+
+    { "symbol":"K", "value":10, "color":"H" },
+    { "symbol":"K", "value":10, "color":"S" },
+    { "symbol":"K", "value":10, "color":"D" },
+    { "symbol":"K", "value":10, "color":"C" }
+]
