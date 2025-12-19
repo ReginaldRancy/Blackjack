@@ -1,11 +1,11 @@
-from .agentBase import AgentBase, Description
+from domain.agents.agentBase import AgentBase, Description
 
 class House(AgentBase):
-    def __init__(self):
+    def __init__(self, name="House"):
         super().__init__(
             Description(
-                name="House",
+                name=name,
                 balance=0.0,
-                is_infinite_balance=True
+                is_house=True
             )
         )

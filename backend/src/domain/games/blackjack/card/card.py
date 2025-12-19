@@ -6,9 +6,13 @@ class Card:
         self.value = value
         self.color = color
         self.is_ace = False
+        self.is_visible = False
 
     def __str__(self):
-        return f"Card: {self.symbol}:{self.color}"
+        if self.is_visible:
+            return f"Card: {self.symbol}:{self.color}"
+        else :
+            return f"Card is hidden"
 
 class Ace(Card):
     def __init__(self,symbol:str, value:int, color:str):

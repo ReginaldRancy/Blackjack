@@ -1,4 +1,4 @@
-from .card import Card, Ace
+from domain.games.blackjack.card.card import Card, Ace
 
 from pathlib import Path
 import random
@@ -9,12 +9,12 @@ DEFAULT_PATH = BASE_DIR/"cards.json"
 
 class Deck():
     
-    def __init__(self, n_players:int = 1):
+    def __init__(self, n_players:int):
         self.n_players = n_players
-        self.cards = self.initCards()*n_players
-        self.usedCard = []
+        self.cards:list[Card] = self.init_cards()*n_players
+        self.used_card:list[Card] = []
 
-    def initCards(self):
+    def init_cards(self):
 
         with open(DEFAULT_PATH) as f:
             cards = f.read()
@@ -28,14 +28,14 @@ class Deck():
 
             return deck
         
-    def shuffle_deck(self):
-        if len(self.usedCard) >= len (self.cards):
-            for card in self.usedCard:
+    def shuffle(self):
+        if len(self.used_card) >= len (self.cards):
+            for card in self.used_card:
                 self.cards.append(card)
-                self.usedCard.remove(card)
+                self.used_card.remove(card)
             random.shuffle(self.cards)
             pass
-        else:
+        elif len(self.used_card) == 0:
             random.shuffle(self.cards)
 
     def __str__(self):
@@ -43,5 +43,13 @@ class Deck():
         for card in self.cards:
             text += "\t" + str(card) + "\n"
 
+
         return text
+    
+    def deal_card(self, make_visible = True):
+        card = self.cards.pop()
+        card.is_visible = make_visible
+        self.used_card.append(card)
+        return card
+        
 
