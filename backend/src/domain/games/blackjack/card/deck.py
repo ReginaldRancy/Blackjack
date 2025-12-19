@@ -9,9 +9,11 @@ DEFAULT_PATH = BASE_DIR/"cards.json"
 
 class Deck():
     
-    def __init__(self, n_players:int):
-        self.n_players = n_players
-        self.cards:list[Card] = self.init_cards()*n_players
+    def __init__(self, n_decks:int):
+        self.n_decks = n_decks
+        self.cards:list[Card] = []
+        for _ in range(self.n_decks):
+            self.cards.extend(self.init_cards())
         self.used_card:list[Card] = []
 
     def init_cards(self):

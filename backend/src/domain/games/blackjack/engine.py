@@ -5,6 +5,7 @@ from domain.agents.agentBase import Description, AgentBase, DrawContext
 from domain.games.blackjack.card.deck import Deck
 from domain.games.blackjack.bet.bet import Bet
 from domain.games.blackjack.card.hand import Hand
+from domain.games.blackjack.rules.base import BlackjackRuleSet
 from enum import Enum
 
 from pathlib import Path
@@ -26,13 +27,14 @@ class GameState(Enum):
 
 class Engine:
 
-    def __init__(self, house:House, player:Player) -> None:
+    def __init__(self, house:House, player:Player, ruleset:BlackjackRuleSet) -> None:
         self.house = house
         self.agents:list[AgentBase] = [player]
         self.deck:Deck | None = None
         self.hands:list[Hand] = []
         self.house_hand = Hand(house, None)
         self.gameState = GameState.BETTING
+        self.ruleset = ruleset
 
 
     def start_game(self, n_bots = 0):
@@ -91,27 +93,30 @@ class Engine:
     def deal_first_cards(self):
         if self.deck == None: self.deck = Deck(max(len(self.agents), DEFAULT_N_DECK))
         for i in range(2):
-            for j in range(len(self.hands)):
-                self.hands[j].add_card(self.deck.deal_card())
-                if self.hands[j].is_blackjack(): 
-                    self.manage_blackjack(self.hands[j])
+            for hand in self.hands[:]:
+                hand.add_card(self.deck.deal_card())
+                self.ruleset.handle_blackjack(hand, self.hands)
             self.house_hand.add_card(self.deck.deal_card(False))
-        print(self)
+
+        
 
     def deal_extra_cards(self):
         h_hand = self.house_hand
         if(self.deck):
-            for hand in self.hands:
+            for hand in self.hands[:]:
                 draw = True
                 while draw:
                     context = DrawContext(hand.calculate_value(), h_hand.calculate_value())
                     want_to_draw = hand.agent.decide_draw(context)
                     if hand.can_draw(h_hand) and want_to_draw:
                         hand.add_card(self.deck.deal_card())
-                        print(f"Your new hand is:\n{str(hand)}")  #11########## Important à changer éventuellement
+                        print(f"New hand is:\n{str(hand)}")  ########### Important à changer éventuellement
                     else :
                         draw = False
             print(self)
+
+            
+                    
         else: raise Exception("No deck")
 
     def deal_to_house(self):

@@ -18,6 +18,7 @@ class Ace(Card):
     def __init__(self,symbol:str, value:int, color:str):
         super().__init__(symbol, value, color)
         self.is_ace = True
+        self.is_visible = False
         self.alt_value = 11
 
     def __str__(self):

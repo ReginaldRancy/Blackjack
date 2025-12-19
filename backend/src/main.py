@@ -6,6 +6,7 @@ from domain.games.blackjack.card.deck import Deck
 from domain.games.blackjack.card.hand import Hand
 from domain.games.blackjack.card.card import Card, Ace
 from domain.games.blackjack.engine import Engine
+from domain.games.blackjack.rules.standard import StandardBlackjackRules
 
 # elements = [
 #     Player(Description("Player", 200.0)),
@@ -37,6 +38,7 @@ from domain.games.blackjack.engine import Engine
 
 house = House()
 player = Player(Description("Monique", 200))
-engine = Engine(house, player)
+ruleset = StandardBlackjackRules()
+engine = Engine(house, player, ruleset)
 engine.start_game(2)
 print(engine)
